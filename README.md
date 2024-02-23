@@ -2,7 +2,7 @@
 
 ## The Tutorial
 
-This code is part of my Vision OS Tutorial Series at [https://visionos.substack.com](https://visionos.substack.com)
+This code is part of my Vision OS tutorial series at [https://visionos.substack.com](https://visionos.substack.com)
 
 ![Screenshot](assets/screenshot.png)
 
