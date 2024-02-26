@@ -25,7 +25,7 @@
 		DB728EB72B8881A7006E60FD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DB728EBA2B8881A7006E60FD /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		DB728EBC2B8881A7006E60FD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		DB728EC22B8887CD006E60FD /* GameWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = GameWindow.swift; path = ../../../GameWindow.swift; sourceTree = "<group>"; };
+		DB728EC22B8887CD006E60FD /* GameWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameWindow.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
