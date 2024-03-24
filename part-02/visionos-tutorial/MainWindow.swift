@@ -27,7 +27,7 @@ struct MainWindow: View {
 
     var body: some View {
         VStack {
-            Text("VISION OS")
+            Text("visionOS")
                 .font(.system(size: 38))
             Text("FROM ZERO TO HERO")
                 .font(.system(size: 28))
