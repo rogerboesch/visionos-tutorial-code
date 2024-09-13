@@ -4,7 +4,7 @@
 
 This code is part of my Vision OS tutorial series at [https://visionos.substack.com](https://visionos.substack.com)
 
-![Screenshot](assets/screenshot.png)
+![Screenshot](assets/screenshot1.png)
 
 
 DISCLAIMER: 
