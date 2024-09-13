@@ -11,5 +11,9 @@
 		<key>UISceneConfigurations</key>
 		<dict/>
 	</dict>
+	<key>NSWorldSensingUsageDescription</key>
+	<string>Used to detect headpose location</string>
+	<key>NSHandsTrackingUsageDescription</key>
+	<string>Used to detect hand/finger positions</string>
 </dict>
 </plist>

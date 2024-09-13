@@ -126,11 +126,11 @@ class RBGameObject {
         }
     }
     
-    public func changeDirectionTo(angle: Float) {
+    public func changeDirection(to angle: Float) {
         _angle = angle
     }
     
-    public func changeDirectionBy(angle: Float) {
+    public func changeDirection(by angle: Float) {
         _angle += angle
     }
 
@@ -159,7 +159,7 @@ class RBGameObject {
     
     func fly() {
         self.velocity = RBGameObject.DEFAULT_VELOCITY
-        changeDirectionTo(angle: -90.0)
+        changeDirection(to: -90.0)
     }
 
     init() {

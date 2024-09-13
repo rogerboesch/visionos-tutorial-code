@@ -26,8 +26,6 @@ struct GameSpace: View {
     @Environment(\.dismissWindow) var dismissWindow
 
     @EnvironmentObject var settings: GameSettings
-    @Environment(RBHandTracking.self) var handTracking
-    @Environment(RBHeadPose.self) var headpose
 
     @State private var airplane: Entity? = nil
     
@@ -84,10 +82,10 @@ struct GameSpace: View {
                 }
                 
                 // Start tracking
-                headpose.setup()
+                RBHeadPose.instance.setup()
                 setupHandTracking(content: realityContent!)
                 
-                RBARSession.instance.startSession(systems: [headpose, handTracking])
+                RBARSession.instance.startSession(systems: [RBHeadPose.instance, RBHandTracking.instance])
             }
         }
         attachments: {
@@ -134,23 +132,19 @@ struct GameSpace: View {
         rbDebug("Created entity for hand-tracking at 0,0,0")
 
         // Hand-tracking functionality
-        handTracking.attachToNode(node, content: content)
+        RBHandTracking.instance.attachToNode(node, content: content)
 
         // Activate handtracking for this joints
-        handTracking.activateTracking(chirality: .left, joint: .indexFingerTip)
-        handTracking.activateTracking(chirality: .left, joint: .thumbTip)
+        RBHandTracking.instance.activateTracking(chirality: .left, joint: .indexFingerTip)
+        RBHandTracking.instance.activateTracking(chirality: .left, joint: .thumbTip)
 
-        handTracking.activateTracking(chirality: .right, joint: .indexFingerTip)
-        handTracking.activateTracking(chirality: .right, joint: .thumbTip)
+        RBHandTracking.instance.activateTracking(chirality: .right, joint: .indexFingerTip)
+        RBHandTracking.instance.activateTracking(chirality: .right, joint: .thumbTip)
 
-        handTracking.onJointCollision = { (infoA, infoB) in
+        RBHandTracking.instance.onJointCollision = { (infoA, infoB) in
+            // A/B combination
             if infoA.chirality == .left && infoA.joint == .indexFingerTip &&
                 infoB.chirality == .left && infoB.joint == .thumbTip {
-                // Left index finger on left thumb
-                GameController.instance.changeDirection(by: -10.0)
-            }
-            else if infoB.chirality == .left && infoB.joint == .indexFingerTip &&
-                        infoA.chirality == .left && infoA.joint == .thumbTip {
                 // Left index finger on left thumb
                 GameController.instance.changeDirection(by: -10.0)
             }
@@ -159,6 +153,12 @@ struct GameSpace: View {
                 // Right index finger on left thumb
                 GameController.instance.changeDirection(by: 10.0)
             }
+            // B/A combination
+            else if infoB.chirality == .left && infoB.joint == .indexFingerTip &&
+                        infoA.chirality == .left && infoA.joint == .thumbTip {
+                // Left index finger on left thumb
+                GameController.instance.changeDirection(by: -10.0)
+            }
             else if infoB.chirality == .right && infoB.joint == .indexFingerTip &&
                         infoA.chirality == .right && infoA.joint == .thumbTip {
                 // Right index finger on left thumb
@@ -166,7 +166,7 @@ struct GameSpace: View {
             }
         }
 
-        handTracking.setup()
+        RBHandTracking.instance.setup()
     }
 
     private func placeObjectAtHeadPose() {

@@ -19,6 +19,8 @@ typealias HandTrackingGestureCallBack = (RBHandTracking.Gesture, Pose3D) -> ()
 @Observable
 @MainActor
 class RBHandTracking : RBARSystem {
+    private static var INSTANCE: RBHandTracking? = nil
+
     enum State {
         case none
         case active
@@ -35,7 +37,17 @@ class RBHandTracking : RBARSystem {
         var model: ModelEntity
         var follow: Bool
     }
-    
+
+    static var instance: RBHandTracking {
+        get {
+            if RBHandTracking.INSTANCE == nil {
+                RBHandTracking.INSTANCE = RBHandTracking()
+            }
+            
+            return RBHandTracking.INSTANCE!
+        }
+    }
+
     var onJointCollision: HandTrackingCallBack?
     var onJointObjectCollision: HandTrackingObjectCallBack?
     var onJointFollowCallBack: HandTrackingFollowCallBack?

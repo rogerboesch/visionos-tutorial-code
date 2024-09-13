@@ -83,27 +83,19 @@ class GameController {
     }
     
     func turnLeft() {
-        guard let airplane = self.airplane else { return }
-
-        rbDebug("Turn airplane left")
-
-        airplane.changeDirectionBy(angle: -90.0)
+        changeDirection(by: -90.0)
     }
     
     func turnRight() {
-        guard let airplane = self.airplane else { return }
-
-        rbDebug("Turn airplane right")
-
-        airplane.changeDirectionBy(angle: 90.0)
+        changeDirection(by: 90.0)
     }
     
     func changeDirection(by angle: Float) {
-        guard let airplane = self.airplane else { return }
+        guard let airplane = self.airplane, gameState == .play else { return }
 
         rbDebug("Turn airplane by angle: \(angle)")
 
-        airplane.changeDirectionBy(angle: angle)
+        airplane.changeDirection(by: angle)
     }
     
     

@@ -20,8 +20,6 @@ import SwiftUI
 @main
 struct GameApp: App {
     @StateObject var settings = GameSettings()
-    @State private var handTracking = RBHandTracking()
-    @State private var planeDetection = RBHeadPose()
 
     var body: some Scene {
         WindowGroup(id: "main_window") {
